@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="adpet_one" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://adept_one_description/meshes/base_link.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_1">
+    <visual>
+      <geometry>
+        <mesh filename="package://adept_one_description/meshes/link_1.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_2">
+    <visual>
+      <geometry>
+        <mesh filename="package://adept_one_description/meshes/link_2.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="link_3" />
+
+  <link name="link_4">
+    <visual>
+      <geometry>
+        <mesh filename="package://adept_one_description/meshes/link_4.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="flange_link" />
+
+  <joint name="joint_1" type="revolute">
+    <parent link="base_link" />
+    <child link="link_1" />
+    <origin xyz="0 0 0.828" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="${540/180*pi}" lower="${-150/180*pi}" upper="${150/180*pi}" />
+  </joint>
+
+  <joint name="joint_2" type="revolute">
+    <parent link="link_1" />
+    <child link="link_2" />
+    <origin xyz="0.425 0 0.224" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="${540/180*pi}" lower="${-147/180*pi}" upper="${147/180*pi}" />
+  </joint>
+
+  <joint name="joint_3" type="prismatic">
+    <parent link="link_2" />
+    <child link="link_3" />
+    <origin xyz="0.375 0 -0.1975" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="0.5" lower="-0.1975" upper="0" />
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="0 0 1" />
+    <limit effort="0" velocity="${3600/180*pi}" lower="${-277/180*pi}" upper="${277/180*pi}" />
+  </joint>
+
+  <joint name="flange_joint" type="fixed">
+    <parent link="link_4" />
+    <child link="flange_link" />
+    <origin rpy="${pi} 0 0" />
+  </joint>
+</robot>

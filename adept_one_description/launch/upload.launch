@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="xacro --inorder $(find adept_one_description)/urdf/adept_one.urdf.xacro" />
+</launch>

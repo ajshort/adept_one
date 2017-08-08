@@ -1,0 +1,5 @@
+.vscode/
+
+*.user
+
+CATKIN_IGNORE

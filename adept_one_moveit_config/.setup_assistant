@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: adept_one_description
+    relative_path: urdf/adept_one.urdf.xacro
+  SRDF:
+    relative_path: config/adept_one.srdf
+  CONFIG:
+    author_name: Andrew Short
+    author_email: andrewjshort@gmail.com
+    generated_timestamp: 1502250433
